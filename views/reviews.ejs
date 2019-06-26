@@ -15,21 +15,25 @@
   </div>
   <div class="container">
     <div class="card">
+      <% if (message === "success") { %>
       <div class="card-body">
-        <h5 class="card-title">Get Reviews From Websites</h5>
-        <p class="card-text">Simply enter the URL of the product page of the website, and get back all reviews for the product at a glance.</p>
+        <p>Reviews from <a href=<%=data.url%>><%=data.url%></a></p>
+        <p>Number of Reviews<%=data.reviewCount%></p>
       </div>
       <ul class="list-group list-group-flush">
+        <% for(d of data.reviewArray) { %>
         <li class="list-group-item">
-            <form class="form-inline m-2">
-              <div class="form-group col-sm-9">
-                <label for="urlId1" class="col-form-label col-sm-4">Enter TradeTiger Product URL</label>
-                <input type="url" class="form-control col-sm-8" id="urlId1" name="urlName1" placeholder="https://..." required>
-              </div>
-              <button type="button" onclick="window.open(`/reviews/?url=${document.getElementById('urlId1').value}`)" class="btn btn-primary">Generate Get API Endpoint</button>
-            </form>
+          <h5 class="card-title"><%=d.reviewTitle%></h5>
+          <p><%=d.reviewComment%></p>
+          <p class="text-muted"><%=d.reviewRating%> stars by <%=d.reviewer%> on <%=d.reviewDate%></p>
         </li>
+        <% } %>
       </ul>
+      <% } else { %>
+        <div class="card-body">
+          <h5>Reviews not found for <a href=<%=data.url%>><%=data.url%></a></h5>
+        </div>
+      <% } %>
   </div>
   <footer id="sticky-footer" class="py-4 mt-4 bg-dark text-white-50">
     <div class="container text-center">

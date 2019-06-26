@@ -10,7 +10,15 @@ app.set('view engine', 'ejs');
 app.get('/reviews', (req, res) => {
     scraper.extractReviews(req.query.url)
     .then(data => {
-        res.status(200).json({ message: "success", data: data })
+      let obj = {}
+      if(data.reviewCount > 0) {
+        obj = { message: "success", data: data }
+      } else if (data.reviewCount == 0) {
+        obj = { message: "No data", data: data }
+      } else {
+        obj = { message: "failed", data: data }
+      }
+      res.status(200).render('reviews', obj);
     }).catch(err => res.status(500).json({ message: err }))
 });
 
