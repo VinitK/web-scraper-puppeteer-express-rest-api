@@ -22,14 +22,19 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
             <form class="form-inline m-2">
-                <div class="form-group col-sm-9">
-                  <label for="urlId1" class="col-form-label col-sm-4">Enter TradeTiger Product URL</label>
-                  <input type="url" class="form-control col-sm-8" id="urlId1" name="urlName1" placeholder="https://...">
-                </div>
-                <button type="button" onclick="window.open(`/reviews/?url=${document.getElementById('urlId1').value}`)" class="btn btn-primary">Get Reviews</button>
-              </form>
+              <div class="form-group col-sm-9">
+                <label for="urlId1" class="col-form-label col-sm-4">Enter TradeTiger Product URL</label>
+                <input type="url" class="form-control col-sm-8" id="urlId1" name="urlName1" placeholder="https://...">
+              </div>
+              <button type="button" onclick="window.open(`/reviews/?url=${document.getElementById('urlId1').value}`)" class="btn btn-primary">Generate Get API Endpoint</button>
+            </form>
         </li>
       </ul>
   </div>
+  <footer id="sticky-footer" class="py-4 mt-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>View Code on <a href="https://github.com/VinitK/web-scraper-puppeteer-express-rest-api">Github</a></small>
+    </div>
+  </footer>
 </body>
 </html>
