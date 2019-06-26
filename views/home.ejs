@@ -26,7 +26,8 @@
                 <label for="urlId1" class="col-form-label col-sm-4">Enter TradeTiger Product URL</label>
                 <input type="url" class="form-control col-sm-8" id="urlId1" name="urlName1" placeholder="https://..." required>
               </div>
-              <button type="button" onclick="window.open(`/reviews/?url=${document.getElementById('urlId1').value}`)" class="btn btn-primary">Generate Get API Endpoint</button>
+              <button type="button" onclick="window.open(`/reviews/?url=${document.getElementById('urlId1').value}`)" class="btn btn-primary mr-2">View Reviews</button>
+              <button type="button" onclick="window.open(`/api/reviews/?url=${document.getElementById('urlId1').value}`)" class="btn btn-secondary">API Endpoint</button>
             </form>
         </li>
       </ul>

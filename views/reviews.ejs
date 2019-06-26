@@ -17,21 +17,22 @@
     <div class="card">
       <% if (message === "success") { %>
       <div class="card-body">
-        <p>Reviews from <a href=<%=data.url%>><%=data.url%></a></p>
-        <p>Number of Reviews<%=data.reviewCount%></p>
+        <h5 class="card-title">Reviews from <a href=<%=url%>><%=url%></a></h5>
+        <p>Number of Reviews: <%=reviewCount%></p>
       </div>
       <ul class="list-group list-group-flush">
-        <% for(d of data.reviewArray) { %>
+        <% for(element of reviewArray) { %>
         <li class="list-group-item">
-          <h5 class="card-title"><%=d.reviewTitle%></h5>
-          <p><%=d.reviewComment%></p>
-          <p class="text-muted"><%=d.reviewRating%> stars by <%=d.reviewer%> on <%=d.reviewDate%></p>
+          <h5 class="card-title"><%=element.reviewTitle%></h5>
+          <p><%=element.reviewComment%></p>
+          <p class="text-muted"><%=element.reviewRating%> stars by <%=element.reviewer%> on <%=element.reviewDate%></p>
         </li>
         <% } %>
       </ul>
       <% } else { %>
-        <div class="card-body">
-          <h5>Reviews not found for <a href=<%=data.url%>><%=data.url%></a></h5>
+        <div class="card-body text-center">
+          <h5>Reviews not found for <a href=<%=url%>><%=url%></a></h5>
+          <a href="/" class="btn btn-primary bt-2">Go Home</a>
         </div>
       <% } %>
   </div>
